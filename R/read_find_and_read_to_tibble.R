@@ -1,9 +1,9 @@
 #' find_xlsx_abspath_recursive_readxls_and_unnest
 #'
-#' @param path_dir
-#' @param sheet_string
+#' @param path_dir a string
+#' @param sheet_string a string
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 find_xlsx_abspath_recursive_readxls_and_unnest <- function(path_dir, sheet_string = 'label') {
@@ -15,10 +15,10 @@ find_xlsx_abspath_recursive_readxls_and_unnest <- function(path_dir, sheet_strin
 
 #' abspath_read_and_unnest
 #'
-#' @param tibble_with_abspath_col
-#' @param sheet_string
+#' @param tibble_with_abspath_col a tibble
+#' @param sheet_string a string
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 abspath_read_and_unnest <- function(tibble_with_abspath_col, sheet_string = 'label') {
@@ -32,10 +32,10 @@ abspath_read_and_unnest <- function(tibble_with_abspath_col, sheet_string = 'lab
 
 #' read_in_reshape_image_classification_format
 #'
-#' @param path_reshape_scores
-#' @param sheet_string
+#' @param path_reshape_scores a string
+#' @param sheet_string a string
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 read_in_reshape_image_classification_format <- function(path_reshape_scores, sheet_string = 'label') {
@@ -50,9 +50,9 @@ read_in_reshape_image_classification_format <- function(path_reshape_scores, she
 
 #' read_in_and_merge_reshape_labels_and_scores
 #'
-#' @param path_reshape_scores
+#' @param path_reshape_scores a string
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 read_in_and_merge_reshape_labels_and_scores <- function(path_reshape_scores) {
@@ -63,15 +63,15 @@ read_in_and_merge_reshape_labels_and_scores <- function(path_reshape_scores) {
     read_in_reshape_image_classification_format(sheet_string = 'score')
 
   labels |>
-    left_join(scores, by = c("run_id", "deck_position", "hour_candidate", "well"))
+    dplyr::left_join(scores, by = c("run_id", "deck_position", "hour_candidate", "well"))
 }
 
 #' reformat_reshape_classifications_according_to_plate_assay_role
 #'
-#' @param reshape_classification
-#' @param tibble_reshape_runs_with_preinc_id_and_plate_assay_role
+#' @param reshape_classification a tibble
+#' @param tibble_reshape_runs_with_preinc_id_and_plate_assay_role a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 reformat_reshape_classifications_according_to_plate_assay_role <- function(reshape_classification,
@@ -83,10 +83,10 @@ reformat_reshape_classifications_according_to_plate_assay_role <- function(resha
 
 #' join_with_reshape_classification_and_remove_plate_level_details
 #'
-#' @param tibble_reshape_runs_with_preinc_id_and_plate_assay_role
-#' @param tibble_reshape_long_format
+#' @param tibble_reshape_runs_with_preinc_id_and_plate_assay_role a tibble
+#' @param tibble_reshape_long_format a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 join_with_reshape_classification_and_remove_plate_level_details <- function(tibble_reshape_runs_with_preinc_id_and_plate_assay_role,
@@ -99,9 +99,9 @@ join_with_reshape_classification_and_remove_plate_level_details <- function(tibb
 
 #' reformat_according_to_plate_assay_role
 #'
-#' @param tibble_of_reshape_runs_with_preinc_id_and_plate_assay_role
+#' @param tibble_of_reshape_runs_with_preinc_id_and_plate_assay_role a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 reformat_according_to_plate_assay_role <- function(tibble_of_reshape_runs_with_preinc_id_and_plate_assay_role) {
@@ -112,9 +112,9 @@ reformat_according_to_plate_assay_role <- function(tibble_of_reshape_runs_with_p
 
 #' pivot_according_to_plate_assay_role
 #'
-#' @param tibble_with_reshape_classification_preinc_joined_format
+#' @param tibble_with_reshape_classification_preinc_joined_format a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 pivot_according_to_plate_assay_role <- function(tibble_with_reshape_classification_preinc_joined_format) {
@@ -130,9 +130,9 @@ pivot_according_to_plate_assay_role <- function(tibble_with_reshape_classificati
 
 #' convert_relocate_and_arrange_columns
 #'
-#' @param tibble_pivotted_long_reshape_preinc_joined
+#' @param tibble_pivotted_long_reshape_preinc_joined a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 convert_relocate_and_arrange_columns <- function(tibble_pivotted_long_reshape_preinc_joined) {
@@ -150,9 +150,9 @@ convert_relocate_and_arrange_columns <- function(tibble_pivotted_long_reshape_pr
 
 #' convert_T_values_to_hour_and_relocate
 #'
-#' @param tibble_with_T_values_column
+#' @param tibble_with_T_values_column a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 convert_T_values_to_hour_and_relocate <- function(tibble_with_T_values_column) {
@@ -170,9 +170,9 @@ convert_T_values_to_hour_and_relocate <- function(tibble_with_T_values_column) {
 
 #' convert_well_to_row_col_and_relocate
 #'
-#' @param tibble_with_well_column
+#' @param tibble_with_well_column a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 convert_well_to_row_col_and_relocate <- function(tibble_with_well_column) {
@@ -183,9 +183,9 @@ convert_well_to_row_col_and_relocate <- function(tibble_with_well_column) {
 
 #' add_pathogen_spore_conc_column_and_relocate
 #'
-#' @param tibble_without_pathogen_spore_conc_column
+#' @param tibble_without_pathogen_spore_conc_column a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 add_pathogen_spore_conc_column_and_relocate <- function(tibble_without_pathogen_spore_conc_column) {
@@ -197,9 +197,9 @@ add_pathogen_spore_conc_column_and_relocate <- function(tibble_without_pathogen_
 
 #' determine_rechecks
 #'
-#' @param tibble_preincubation_id_formatted
+#' @param tibble_preincubation_id_formatted a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 determine_rechecks <- function(tibble_preincubation_id_formatted) {

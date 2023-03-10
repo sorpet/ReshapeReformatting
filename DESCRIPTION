@@ -12,6 +12,10 @@ RoxygenNote: 7.2.3
 Imports: 
     dplyr,
     fs,
-    tibble
+    purrr,
+    readxl,
+    tibble,
+    tidyr,
+    writexl
 URL: https://github.com/sorpet/ReshapeReformatting
 BugReports: https://github.com/sorpet/ReshapeReformatting/issues

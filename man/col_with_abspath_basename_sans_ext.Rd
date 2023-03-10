@@ -7,7 +7,10 @@
 col_with_abspath_basename_sans_ext(tibble_with_abspath_col)
 }
 \arguments{
-\item{tibble_with_abspath_col}{}
+\item{tibble_with_abspath_col}{a tibble}
+}
+\value{
+a tibble
 }
 \description{
 col_with_abspath_basename_sans_ext

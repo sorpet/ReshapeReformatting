@@ -1,9 +1,9 @@
 
 #' pivot_longer_reshape_image_classification_format
 #'
-#' @param tibble_with_wide_reshape_format
+#' @param tibble_with_wide_reshape_format a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 pivot_longer_reshape_image_classification_format <- function(tibble_with_wide_reshape_format) {
@@ -18,9 +18,9 @@ pivot_longer_reshape_image_classification_format <- function(tibble_with_wide_re
 
 #' change_min_to_hour_in_reshape_image_classification_format
 #'
-#' @param tibble_with_min_reshape_format
+#' @param tibble_with_min_reshape_format a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
 change_min_to_hour_in_reshape_image_classification_format <- function(tibble_with_min_reshape_format) {
@@ -31,20 +31,12 @@ change_min_to_hour_in_reshape_image_classification_format <- function(tibble_wit
     identity()
 }
 
-# slice_day_6_in_reshape_format <- function(tibble_with_all_hours_reshape_format) {
-#   tibble_with_all_hours_reshape_format |>
-#     group_by(first_directory_name, basename_sans_ext) %>%
-#     slice(which.min(abs(duration_minutes - 8640))) |> #8640 min = 6 days * 24 hours/days * 60 minutes / hour = 144 hours
-#     ungroup() |>
-#     identity()
-# }
-
-#' Title
+#' cleanup_time_rename_and_relocate_reshape_format
 #'
-#' @param tibble_with_long_reshape_format_uncleaned
-#' @param sheet_string
+#' @param tibble_with_long_reshape_format_uncleaned a tibble
+#' @param sheet_string a string
 #'
-#' @return
+#' @return  a tibble
 #' @export
 #'
 cleanup_time_rename_and_relocate_reshape_format <- function(tibble_with_long_reshape_format_uncleaned, sheet_string = 'label') {

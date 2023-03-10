@@ -1,13 +1,12 @@
 
-#' Title
+#' partition_by_preincubation_id
 #'
-#' @param tibble_of_reshape_classifications_formatted_by_preinc_assay
-#' @param path_folder_DTU_format_id_partion
+#' @param tibble_of_reshape_classifications_formatted_by_preinc_assay a tibble
+#' @param path_folder_DTU_format_id_partion a string
 #'
-#' @return
+#' @return Nothing. Has file creation sideeffect
 #' @export
 #'
-
 partition_by_preincubation_id <- function(tibble_of_reshape_classifications_formatted_by_preinc_assay,
                                           path_folder_DTU_format_id_partion) {
   preincubation_ids_classified <- tibble_of_reshape_classifications_formatted_by_preinc_assay |>
@@ -21,17 +20,16 @@ partition_by_preincubation_id <- function(tibble_of_reshape_classifications_form
 }
 
 
-#' Title
+#' create_partion_by_preincubation_id
 #'
-#' @param id_preinc
-#' @param tibble_of_reshape_classifications_formatted_by_preinc_assay
-#' @param path_folder_DTU_format_id_partion
-#' @param extention_id_partion
+#' @param id_preinc a string
+#' @param tibble_of_reshape_classifications_formatted_by_preinc_assay a tibble
+#' @param path_folder_DTU_format_id_partion a string
+#' @param extention_id_partion a string
 #'
-#' @return
+#' @return Nothing. Has file creation sideeffect
 #' @export
 #'
-
 create_partion_by_preincubation_id <- function(id_preinc,
                                                tibble_of_reshape_classifications_formatted_by_preinc_assay,
                                                path_folder_DTU_format_id_partion,

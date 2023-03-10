@@ -2,13 +2,16 @@
 % Please edit documentation in R/read_abspath_col_derivations.R
 \name{create_cols_with_abspath_basename_and_first_dir}
 \alias{create_cols_with_abspath_basename_and_first_dir}
-\title{Title}
+\title{create_cols_with_abspath_basename_and_first_dir}
 \usage{
 create_cols_with_abspath_basename_and_first_dir(tibble_with_abspath_col)
 }
 \arguments{
-\item{tibble_with_abspath_col}{}
+\item{tibble_with_abspath_col}{a tibble}
+}
+\value{
+a tibble
 }
 \description{
-Title
+create_cols_with_abspath_basename_and_first_dir
 }

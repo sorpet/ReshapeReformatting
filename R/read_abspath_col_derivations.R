@@ -14,8 +14,8 @@ col_with_abspath_basename_sans_ext <- function(tibble_with_abspath_col) {
 #'
 #' @param tibble_with_abspath_col a tibble
 #'
-#' @return
-#' @export a tibble
+#' @return a tibble
+#' @export
 #'
 col_with_abspath_first_directory_name <- function(tibble_with_abspath_col) {
   tibble_with_abspath_col |>

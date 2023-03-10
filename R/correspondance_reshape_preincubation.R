@@ -1,11 +1,10 @@
-#' Title
+#' create_lookup_barcodes_per_reshape_run
 #'
-#' @param events_reshape
+#' @param events_reshape a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
-
 create_lookup_barcodes_per_reshape_run <- function(events_reshape) {
   events_reshape |>
     filter(experiment_ids == "SOP-223") |>  #only preincubation runs
@@ -14,14 +13,13 @@ create_lookup_barcodes_per_reshape_run <- function(events_reshape) {
     identity()
 }
 
-#' Title
+#' create_lookup_barcodes_per_preincubation_id
 #'
-#' @param events_preincubation
+#' @param events_preincubation a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
-
 create_lookup_barcodes_per_preincubation_id <- function(events_preincubation) {
   events_preincubation |>
     filter(
@@ -35,15 +33,14 @@ create_lookup_barcodes_per_preincubation_id <- function(events_preincubation) {
     pivot_longer(!id, names_to = "plate_assay_role", values_to = "barcode")
 }
 
-#' Title
+#' find_correspondance_between_reshape_run_and_preincubation_assay
 #'
-#' @param lookup_barcodes_per_preincubation_id
-#' @param lookup_barcodes_per_reshape_run
+#' @param lookup_barcodes_per_preincubation_id a tibble
+#' @param lookup_barcodes_per_reshape_run a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
-
 find_correspondance_between_reshape_run_and_preincubation_assay <- function(lookup_barcodes_per_preincubation_id,
                                                                             lookup_barcodes_per_reshape_run) {
   lookup_barcodes_per_preincubation_id |>
@@ -51,15 +48,14 @@ find_correspondance_between_reshape_run_and_preincubation_assay <- function(look
     relocate(id, plate_assay_role, run_id, deck_position, barcode)
 }
 
-#' Title
+#' create_reshape_runs_with_preinc_id_and_plate_assay_role
 #'
-#' @param events_reshape
-#' @param events_preincubation
+#' @param events_reshape a tibble
+#' @param events_preincubation a tibble
 #'
-#' @return
+#' @return a tibble
 #' @export
 #'
-
 create_reshape_runs_with_preinc_id_and_plate_assay_role <- function(events_reshape,
                                                                     events_preincubation) {
   lookup_barcodes_per_reshape_run <- events_reshape |>
